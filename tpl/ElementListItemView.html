@@ -1,0 +1,22 @@
+<div style="clear: both">
+    <div style="margin: 2%">
+        <a href="#element/edit/<%= page_element_id %>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+        <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i></a>
+        <a href="#" class="btn btn-primary"><i class="fa fa-arrow-down"></i></a>
+        <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+    </div>
+    <% if(text !== null){ %>
+        <p><%= text.content %></p>
+    <% } else if(slide_show !== null) { %>
+        <% _.each(slide_show.images, function(slideImage){ %>
+            <img style="width: 40%; margin: 5%; float: left" src="<%= app.utils.util.server %>/server/php/files/page/<%= page_id %>/<%= page_element_id %>/<%= slideImage.filename %>">
+        <% }) %>
+    <% } else if(image !== null) { %>
+        <img style="width: 90%; margin: 5%;" src="<%= app.utils.util.server %>/server/php/files/page/<%= page_id %>/<%= page_element_id %>/<%= image.filename %>">
+    <% } else if(video !== null) { %>
+        <pre><%= text.content %></pre>
+    <% } else { %>
+        <p>Position de l'éléments : <%= position %></p>
+    <% } %>
+</div>
+<hr>
