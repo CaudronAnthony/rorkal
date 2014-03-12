@@ -9,6 +9,7 @@ app.views.ArticleImageView = Backbone.View.extend({
     picture: function() {
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 50,
+            saveToPhotoAlbum: true
             // destinationType: Camera.DestinationType.FILE_URI
         });
 
